@@ -17,16 +17,24 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            padding-top: 80px; /* Add padding to avoid overlap with fixed header */
         }
         .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
             background: linear-gradient(45deg, #6200EA, #3700B3); /* Gradient for header */
             color: white;
             padding: 20px;
             text-align: center;
             font-size: 28px;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin-bottom: 20px;
+            border-radius: 0; /* Optional: remove border-radius if you want it to be square */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 2px;
+            z-index: 10; /* Ensure header stays on top */
         }
         .container {
             display: flex;
@@ -209,6 +217,7 @@
                 } else {
                     displayMessage('An error occurred. Please try again.', false);
                 }
+
             } catch (error) {
                 console.error('Error:', error);
                 displayMessage('An error occurred. Please try again.', false);
