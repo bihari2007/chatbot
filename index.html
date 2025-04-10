@@ -10,89 +10,106 @@
     <style>
         body {
             margin: 0;
-            font-family: Roboto, sans-serif;
-            background-color: #FAFAFA; /* Light background */
-            color: #212121;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #6A1B9A, #6200EA); /* Gradient background */
+            color: #ECEFF1;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .header {
-            background-color: #6200EA; /* Purple 500 */
+            background: linear-gradient(45deg, #6200EA, #3700B3); /* Gradient for header */
             color: white;
-            padding: 16px;
+            padding: 20px;
             text-align: center;
-            font-size: 24px;
+            font-size: 28px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
         }
         .container {
             display: flex;
             flex-direction: column;
-            height: 100vh;
+            width: 100%;
             max-width: 400px;
-            margin: auto;
-            border: 1px solid #E0E0E0;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            background-color: white;
+            height: 80vh;
+            background-color: rgba(255, 255, 255, 0.1); /* Slight transparency */
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            backdrop-filter: blur(10px); /* Frosted glass effect */
         }
         .chatbox {
             flex: 1;
-            padding: 16px;
+            padding: 20px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 12px;
         }
         .chat-message {
-            padding: 10px 15px;
-            border-radius: 20px;
+            padding: 12px 18px;
+            border-radius: 25px;
             max-width: 80%;
-            word-wrap: break-word; /* Ensure long words break */
-            animation: fadeIn 0.3s ease forwards; /* Apply fade-in animation */
+            word-wrap: break-word;
+            font-size: 16px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.3s ease-out forwards;
         }
         .user-message {
             align-self: flex-end;
-            background-color: #6200EA; /* Purple 500 */
+            background: #6200EA;
             color: white;
             border-top-left-radius: 0;
         }
         .assistant-message {
             align-self: flex-start;
-            background-color: #E0E0E0; /* Light grey */
-            color: #212121;
+            background: #303030;
+            color: #ECEFF1;
             border-top-right-radius: 0;
         }
         .input-area {
-            padding: 10px;
-            border-top: 1px solid #E0E0E0;
-            background-color: #F5F5F5; /* Slightly darker grey */
+            padding: 14px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(0, 0, 0, 0.4);
             display: flex;
             align-items: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
         }
         .input-area input {
             flex: 1;
-            padding: 10px;
-            border: 1px solid #E0E0E0;
-            border-radius: 20px;
-            margin-right: 10px;
-            transition: border-color 0.3s;
+            padding: 14px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            margin-right: 12px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #ECEFF1;
+            transition: all 0.3s ease;
         }
         .input-area input:focus {
             outline: none;
-            border-color: #6200EA; /* Purple 500 */
+            border-color: #6200EA;
+            background: rgba(255, 255, 255, 0.3);
         }
         .input-area button {
-            padding: 10px 15px;
+            padding: 12px 18px;
             border: none;
-            border-radius: 20px;
-            background-color: #6200EA; /* Purple 500 */
+            border-radius: 25px;
+            background-color: #6200EA;
             color: white;
             cursor: pointer;
             display: flex;
             align-items: center;
+            transition: background-color 0.3s ease;
         }
         .input-area button:hover {
-            background-color: #3700B3; /* Darker Purple 700 */
+            background-color: #3700B3;
         }
         .input-area .material-icons {
-            margin-right: 5px;
+            margin-right: 8px;
+            font-size: 20px;
         }
         .spinner {
             display: none;
@@ -100,7 +117,7 @@
             width: 24px;
             height: 24px;
             border-radius: 50%;
-            border-top-color: #6200EA; /* Purple 500 */
+            border-top-color: #6200EA;
             animation: spin 1s linear infinite;
         }
         @keyframes spin {
@@ -191,12 +208,12 @@
                     displayMessage(data.text, false);
                 } else {
                     displayMessage('An error occurred. Please try again.', false);
-                } 
+                }
             } catch (error) {
                 console.error('Error:', error);
-displayMessage('An error occurred. Please try again.', false);
-}
-});
-</script> 
-    </body> 
-    </html>
+                displayMessage('An error occurred. Please try again.', false);
+            }
+        });
+    </script> 
+</body>
+</html>
